@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# To create a mirror of 1024 bytes, skip the first 1023 bytes then write one byte.
+# This is much faster than writing all 1024 bytes.
+# /dev/zero is a special device that always returns 0 when read() is called on it
+dd if=/dev/zero of=mirror1 seek=1023 bs=1 count=1
+dd if=/dev/zero of=mirror2 seek=1023 bs=1 count=1
